@@ -11,8 +11,8 @@
 int main(){
 	srand(time(NULL));
 	
-	int arraySize = 10000;
-	int array[arraySize];
+	int arraySize = 500000000;
+	int *array = malloc(sizeof(int[arraySize]));
 
 	int maxNum = 0;
 	int minNum = 0;
@@ -24,6 +24,12 @@ int main(){
 	maxNum = max(array, arraySize);
 	minNum = min(array, arraySize);
 	averageNum = average(array, arraySize);
+
+	printf("Max: %d\n", maxNum);
+	printf("Min: %d\n", minNum);
+	printf("Average: %lf\n", averageNum);
+
+	free(array);
 
 	return 0;
 }
