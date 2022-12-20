@@ -2,48 +2,28 @@
 #include <time.h>
 #include <stdlib.h>
 
+#include "generation.c"
+#include "max.c"
+#include "min.c"
+#include "average.c"
+
 
 int main(){
 	srand(time(NULL));
 	
-	int arraySize = 5;
+	int arraySize = 10000;
 	int array[arraySize];
 
-	int max = 0;
-	int min = 0;
-	
-	double sum = 0;
-	double average = 0.0;
+	int maxNum = 0;
+	int minNum = 0;
+	double averageNum = 0.0;
 
-	arraySize -= 1; // to account for the fact the arrays start at zero
+	arraySize -= 1; // To make calculating for the majority of functions simpler
 
-	for(int i = 0; i <= arraySize; i++)
-	{
-		array[i] = rand();
-		printf("%d\n", array[i]);
-	}
-
-	for(int i = 0; i <= arraySize; i++)
-	{
-		if(max < array[i]) max = array[i];
-		else continue;
-	}
-
-	min = max;
-
-	for(int i = 0; i <= arraySize; i++)
-	{
-		if(min > array[i]) min = array[i];
-		else continue;
-	}
-
-	for(int i = 0; i <= arraySize; i++)
-	{
-		sum = sum += array[i];
-	}
-	average = sum/(arraySize + 1);
-
-	printf("\n%d\n%d\n%lf\n%lld", max, min, average, sum);
+	generate(array, arraySize);
+	maxNum = max(array, arraySize);
+	minNum = min(array, arraySize);
+	averageNum = average(array, arraySize);
 
 	return 0;
 }
