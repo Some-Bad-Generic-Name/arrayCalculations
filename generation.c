@@ -1,4 +1,4 @@
-int generate(int *array, int arraySize)
+void generate(int *array, int arraySize)
 {
 	for(int i = 0; i <= arraySize; i++)
 	{
